@@ -1,0 +1,68 @@
+#!/bin/sh
+
+#                        conflict
+# master   1---------3---@
+#              |         ^
+#              |         |
+# branch01     +--2------+
+#
+#
+
+#---------------------------------------------------------
+#commit 1 
+cat <<EOS > file01.txt
+text01
+text02
+
+@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@
+
+text03
+text04
+EOS
+
+git init
+git add file01.txt
+git commit -m "commit 1"
+
+#---------------------------------------------------------
+#commit 2 
+git checkout -b branch01
+cat <<EOS > file01.txt
+text01 mod commit2 in branch01
+text02
+
+@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@
+
+text03
+text04 add commit 2 in branch01
+EOS
+
+git add file01.txt
+git commit -m "commit 2"
+
+#---------------------------------------------------------
+#commit 3 
+git checkout master
+cat <<EOS > file01.txt
+text01 mod master commit 3 in master
+text02
+
+@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@
+
+text03
+text05 add commit 3 in master
+EOS
+
+git add file01.txt
+git commit -m "commit 3"
+
+#---------------------------------------------------------
+#conflict merge
+git merge branch01
+
