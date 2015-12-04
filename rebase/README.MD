@@ -7,6 +7,7 @@
  branch01がmasterにマージされた後にそこから、branch02を作成し、branch01-exを
  branch02にrebaseして、branch02の変更内容としてmasterにマージする直前まで
 
+```
  master   1---------3-------------M------+---6--------------
               |                   ^      |
               |                   |      |
@@ -15,7 +16,7 @@
  branch01-ex        \----4---5-----X     |  (branch01-exはXで終了して、新たに4', 5'としてbranch02にrebaseする
                                          |
  branch02                                \-@---(4')--(5')--
-
+```
 
  @にいるときに、
    git checkout branch01-ex
