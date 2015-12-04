@@ -21,7 +21,7 @@
 #   git rebase branch02
 # で、branch01-exがrebaseされるので、その後
 #   git checkout branch02
-#   git merge branch-01
+#   git merge branch01-ex
 # すると、branch01のプルリクがmasterにマージされる前に行ったcommit4, 5が、
 # masterへのマージ後の状態から派生したブランチに対して行ったかのように見える
 #
