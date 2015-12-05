@@ -19,11 +19,19 @@
 ```
 
  @にいるときに、
+
+```sh
    git checkout branch01-ex
    git rebase branch02
- で、branch01-exがrebaseされるので、その後
+```
+
+ で、`branch01-ex`が`rebase`されるので、その後
+
+```sh
    git checkout branch02
    git merge branch01-ex
+```
+
  すると、branch01のプルリクがmasterにマージされる前に行ったcommit4, 5が、
  masterへのマージ後の状態から派生したブランチに対して行ったかのように見える
 
